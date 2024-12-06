@@ -36,13 +36,15 @@ jobs:
       - name: ✅ Run Tests with Maven
         run: mvn test
 
-      - name: 🔍 SonarCloud Scan
+      - name: Run SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARTOKEN  }}
         run: |
           mvn sonar:sonar \
-            -Dsonar.projectKey=TestUser \
-            -Dsonar.organization=master-devops-cloud2 \
+            -Dsonar.projectKey=master-devops-cloud2_yassine-ghalim \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONARTOKEN }}
+            -Dsonar.organization=master-devops-cloud2 \
+            -Dsonar.login=${{ secrets.SONARTOKEN  }}  
 
       - name: 📤 Upload Test Results
         if: always()
