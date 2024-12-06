@@ -39,7 +39,7 @@ jobs:
       - name: 🔍 SonarCloud Scan
         run: |
           mvn sonar:sonar \
-            -Dsonar.projectKey=yassine-ghalim \
+            -Dsonar.projectKey=YASSINE-GHALIM \
             -Dsonar.organization=master-devops-cloud2 \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=${{ secrets.SONARTOKEN }}
